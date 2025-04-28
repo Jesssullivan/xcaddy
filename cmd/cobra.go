@@ -6,8 +6,8 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/caddyserver/xcaddy"
-	"github.com/caddyserver/xcaddy/internal/utils"
+	"github.com/jesssullivan/xcaddy"
+	"github.com/jesssullivan/xcaddy/internal/utils"
 	"github.com/spf13/cobra"
 )
 
@@ -18,7 +18,7 @@ var rootCmd = &cobra.Command{
 		"- Compile custom caddy binaries\n" +
 		"- A replacement for `go run` while developing Caddy plugins\n" +
 		"xcaddy accepts any Caddy command (except help and version) to pass through to the custom-built Caddy, notably `run` and `list-modules`.  The command pass-through allows for iterative development process.\n\n" +
-		"Report bugs on https://github.com/caddyserver/xcaddy\n",
+		"Report bugs on https://github.com/jesssullivan/xcaddy\n",
 	Short:        "Caddy module development helper",
 	SilenceUsage: true,
 	Version:      xcaddyVersion(),
@@ -107,7 +107,7 @@ var rootCmd = &cobra.Command{
 }
 
 const fullDocsFooter = `Full documentation is available at:
-https://github.com/caddyserver/xcaddy`
+https://github.com/jesssullivan/xcaddy`
 
 func init() {
 	rootCmd.SetVersionTemplate("{{.Version}}\n")

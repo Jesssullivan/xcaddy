@@ -1,7 +1,7 @@
 `xcaddy` - Custom Caddy Builder
 ===============================
 
-This command line tool and associated Go package makes it easy to make custom builds of the [Caddy Web Server](https://github.com/caddyserver/caddy).
+This command line tool and associated Go package makes it easy to make custom builds of the [Caddy Web Server](https://github.com/jesssullivan/caddy).
 
 It is used heavily by Caddy plugin developers as well as anyone who wishes to make custom `caddy` binaries (with or without plugins).
 
@@ -13,12 +13,12 @@ Stay updated, be aware of changes, and please submit feedback! Thanks!
 
 ## Install
 
-You can [download binaries](https://github.com/caddyserver/xcaddy/releases) that are already compiled for your platform from the Release tab. 
+You can [download binaries](https://github.com/jesssullivan/xcaddy/releases) that are already compiled for your platform from the Release tab. 
 
 You may also build `xcaddy` from source:
 
 ```bash
-go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
+go install github.com/jesssullivan/xcaddy/cmd/xcaddy@latest
 ```
 
 For Debian, Ubuntu, and Raspbian, an `xcaddy` package is available from our [Cloudsmith repo](https://cloudsmith.io/~caddy/repos/xcaddy/packages/):
@@ -35,7 +35,7 @@ sudo apt install xcaddy
 
 If you find yourself fighting xcaddy in relation to your custom or proprietary build or development process, **it might be easier to just build Caddy manually!**
 
-Caddy's [main.go file](https://github.com/caddyserver/caddy/blob/master/cmd/caddy/main.go), the main entry point to the application, has instructions in the comments explaining how to build Caddy essentially the same way xcaddy does it. But when you use the `go` command directly, you have more control over the whole thing and it may save you a lot of trouble.
+Caddy's [main.go file](https://github.com/jesssullivan/caddy/blob/master/cmd/caddy/main.go), the main entry point to the application, has instructions in the comments explaining how to build Caddy essentially the same way xcaddy does it. But when you use the `go` command directly, you have more control over the whole thing and it may save you a lot of trouble.
 
 The manual build procedure is very easy: just copy the main.go into a new folder, initialize a Go module, plug in your plugins (add an `import` for each one) and then run `go build`. Of course, you may wish to customize the go.mod file to your liking (specific dependency versions, replacements, etc).
 
@@ -84,32 +84,32 @@ $ xcaddy build [<caddy_version>]
 
 ```bash
 $ xcaddy build \
-    --with github.com/caddyserver/ntlm-transport
+    --with github.com/jesssullivan/ntlm-transport
 
 $ xcaddy build v2.0.1 \
-    --with github.com/caddyserver/ntlm-transport@v0.1.1
+    --with github.com/jesssullivan/ntlm-transport@v0.1.1
 
 $ xcaddy build master \
-    --with github.com/caddyserver/ntlm-transport
+    --with github.com/jesssullivan/ntlm-transport
 
 $ xcaddy build a58f240d3ecbb59285303746406cab50217f8d24 \
-    --with github.com/caddyserver/ntlm-transport
+    --with github.com/jesssullivan/ntlm-transport
 
 $ xcaddy build \
-    --with github.com/caddyserver/ntlm-transport=../../my-fork
+    --with github.com/jesssullivan/ntlm-transport=../../my-fork
 
 $ xcaddy build \
-    --with github.com/caddyserver/ntlm-transport@v0.1.1=../../my-fork
+    --with github.com/jesssullivan/ntlm-transport@v0.1.1=../../my-fork
 ```
 
 You can even replace Caddy core using the `--with` flag:
 
 ```
 $ xcaddy build \
-    --with github.com/caddyserver/caddy/v2=../../my-caddy-fork
+    --with github.com/jesssullivan/caddy/v2=../../my-caddy-fork
     
 $ xcaddy build \
-    --with github.com/caddyserver/caddy/v2=github.com/my-user/caddy/v2@some-branch
+    --with github.com/jesssullivan/caddy/v2=github.com/my-user/caddy/v2@some-branch
 ```
 
 This allows you to hack on Caddy core (and optionally plug in extra modules at the same time!) with relative ease.
@@ -216,7 +216,7 @@ builder := xcaddy.Builder{
 	CaddyVersion: "v2.0.0",
 	Plugins: []xcaddy.Dependency{
 		{
-			ModulePath: "github.com/caddyserver/ntlm-transport",
+			ModulePath: "github.com/jesssullivan/ntlm-transport",
 			Version:    "v0.1.1",
 		},
 	},

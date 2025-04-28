@@ -9,8 +9,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/caddyserver/xcaddy"
-	"github.com/caddyserver/xcaddy/internal/utils"
+	"github.com/jesssullivan/xcaddy"
+	"github.com/jesssullivan/xcaddy/internal/utils"
 	"github.com/spf13/cobra"
 )
 

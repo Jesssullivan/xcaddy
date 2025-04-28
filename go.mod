@@ -1,4 +1,4 @@
-module github.com/caddyserver/xcaddy
+module github.com/jesssullivan/xcaddy
 
 go 1.21
 

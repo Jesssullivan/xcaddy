@@ -29,7 +29,7 @@ import (
 	"time"
 
 	"github.com/Masterminds/semver/v3"
-	"github.com/caddyserver/xcaddy/internal/utils"
+	"github.com/jesssullivan/xcaddy/internal/utils"
 )
 
 // Builder can produce a custom Caddy build with the
@@ -108,11 +108,11 @@ func (b Builder) Build(ctx context.Context, outputFile string) error {
 			return err
 		}
 
-		// output looks like: github.com/caddyserver/caddy/v2 v2.7.6
+		// output looks like: github.com/jesssullivan/caddy/v2 v2.7.6
 		version := strings.TrimPrefix(buffer.String(), buildEnv.caddyModulePath)
 		// if caddy replacement is a local directory, version will be
 		// like v2.8.4 => c:\Users\test\caddy
-		// see https://github.com/caddyserver/xcaddy/issues/215
+		// see https://github.com/jesssullivan/xcaddy/issues/215
 		// strings.Cut return the string unchanged if separator is not found
 		version, _, _ = strings.Cut(version, "=>")
 		version = strings.TrimSpace(version)
@@ -268,7 +268,7 @@ func newTempFolder() (string, error) {
 		// The solution, I guess, is to just use our own "temp" dir
 		// outside of /var. Sigh... as long as it still gets cleaned up,
 		// I guess it doesn't matter too much.
-		// See: https://github.com/caddyserver/caddy/issues/2036
+		// See: https://github.com/jesssullivan/caddy/issues/2036
 		// and https://twitter.com/mholt6/status/978345803365273600 (thread)
 		// (using an absolute path prevents problems later when removing this
 		// folder if the CWD changes)
@@ -328,5 +328,5 @@ const (
 	// used for temporary folder paths.
 	yearMonthDayHourMin = "2006-01-02-1504"
 
-	defaultCaddyModulePath = "github.com/caddyserver/caddy"
+	defaultCaddyModulePath = "github.com/jesssullivan/caddy"
 )
