@@ -108,7 +108,6 @@ func (b Builder) Build(ctx context.Context, outputFile string) error {
 			return err
 		}
 
-		// output looks like: github.com/jesssullivan/caddy/v2 v2.7.6
 		version := strings.TrimPrefix(buffer.String(), buildEnv.caddyModulePath)
 		// if caddy replacement is a local directory, version will be
 		// like v2.8.4 => c:\Users\test\caddy
